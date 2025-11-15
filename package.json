@@ -1,0 +1,39 @@
+{
+  "name": "logsentinel",
+  "version": "1.0.0",
+  "description": "Lightweight Express.js logging SDK that captures requests, responses, and errors without slowing down your app",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "jest",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "express",
+    "logging",
+    "middleware",
+    "monitoring",
+    "observability"
+  ],
+  "author": "Eliakim Mwita",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.0",
+    "express": "^4.18.2",
+    "jest": "^29.7.0",
+    "typescript": "^5.3.0"
+  },
+  "peerDependencies": {
+    "express": "^4.0.0"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ]
+}
