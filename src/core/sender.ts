@@ -128,9 +128,10 @@ class LogQueue {
     const config = getConfig();
 
     try {
+      const endpoint = `${config.baseUrl}/api/sdk/logs`;
       logger.debug(`Sending batch attempt ${attempt}/${MAX_RETRIES}`, {
         count: logs.length,
-        url: config.baseUrl
+        url: endpoint
       });
 
       // Transform logs to match expected server format
@@ -159,7 +160,10 @@ class LogQueue {
           method: transformedLogs[0].request.method,
           path: transformedLogs[0].request.path,
           status: transformedLogs[0].response.status,
-          duration: transformedLogs[0].response.duration_ms
+          duration: transformedLogs[0].response.duration_ms,
+          hasRequestBody: !!transformedLogs[0].request.body,
+          hasResponseBody: !!transformedLogs[0].response.body,
+          responseBodyPreview: transformedLogs[0].response.body?.substring(0, 100)
         });
       }
 
@@ -167,7 +171,7 @@ class LogQueue {
       let successCount = 0;
       for (const transformedLog of transformedLogs) {
         const response = await axios.post(
-          config.baseUrl,
+          endpoint,
           transformedLog,
           {
             headers: {

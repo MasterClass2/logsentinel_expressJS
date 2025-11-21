@@ -36,16 +36,18 @@ Set these environment variables in your `.env` file:
 
 ```env
 LOGSENTINEL_API_KEY=your_api_key_here
-LOGSENTINEL_BASE_URL=https://your-server.com/logs
+LOGSENTINEL_BASE_URL=https://sentinel.ipvs.cloud
 LOGSENTINEL_DEBUG=false
 ```
+
+**Note:** The SDK automatically appends `/api/sdk/logs` to the base URL. You only need to provide the base domain.
 
 Or pass configuration explicitly:
 
 ```javascript
 setupLogsentinel(app, {
   apiKey: 'your_api_key',
-  baseUrl: 'https://your-server.com/logs',
+  baseUrl: 'https://sentinel.ipvs.cloud',
   debug: true
 });
 ```

@@ -107,7 +107,14 @@ export function logsentinelMiddleware() {
         }
       }
 
-      logger.debug(`Response captured: ${res.statusCode}`, { requestId, body: responseLog.body });
+      logger.debug(`Response captured: ${res.statusCode}`, { 
+        requestId, 
+        hasBody: !!responseLog.body,
+        bodyType: typeof responseLog.body,
+        bodyPreview: typeof responseLog.body === 'string' 
+          ? responseLog.body.substring(0, 100) 
+          : JSON.stringify(responseLog.body).substring(0, 100)
+      });
     };
 
     // Monkey-patch res.send

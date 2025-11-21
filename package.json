@@ -1,15 +1,30 @@
 {
   "name": "logsentinel",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "Lightweight Express.js logging SDK that captures requests, responses, and errors without slowing down your app",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+
+  "author": "Eliakim Mwita <eliakimdev52@gmail.com>",
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MasterClass2/logsentinel_expressJS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MasterClass2/logsentinel_expressJS/issues"
+  },
+  "homepage": "https://github.com/MasterClass2/logsentinel_expressJS#readme",
+
+  "license": "MIT",
+
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
     "test": "jest",
     "prepublishOnly": "npm run build"
   },
+
   "keywords": [
     "express",
     "logging",
@@ -17,11 +32,11 @@
     "monitoring",
     "observability"
   ],
-  "author": "Eliakim Mwita",
-  "license": "MIT",
+
   "dependencies": {
     "axios": "^1.6.0"
   },
+
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^20.10.0",
@@ -29,9 +44,17 @@
     "jest": "^29.7.0",
     "typescript": "^5.3.0"
   },
+
   "peerDependencies": {
     "express": "^4.0.0"
   },
+
+  "peerDependenciesMeta": {
+    "express": {
+      "optional": true
+    }
+  },
+
   "files": [
     "dist",
     "README.md"
